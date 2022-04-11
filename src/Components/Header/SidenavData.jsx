@@ -11,6 +11,8 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import BookIcon from "@material-ui/icons/Book";
 import { Assessment, Assignment, BugReportRounded, DynamicFeed, Report, SupervisedUserCircle, SupervisedUserCircleOutlined, VerifiedUserTwoTone } from "@material-ui/icons";
 
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import Icons from "@material-ui/icons";
 // import PeopleIcon from '@mui/icons-material/People';
@@ -68,6 +70,27 @@ export default function SidenavData({ handleDrawerClose }) {
            <ListItem
              exact
              component={NavLink}
+             to="/users"
+             className={classes.navlinks}
+             activeClassName={classes.activeNavlinks}>
+             <ListItemIcon>
+               {/* <Assessment /> */}
+               <PeopleOutlineIcon />
+
+               </ListItemIcon>
+             <ListItemText>Users</ListItemText>
+           </ListItem>
+           </Button>
+          }
+          {user.role==='admin' &&
+           <Button
+           size='small'
+           className={classes.navButton}
+           onClick={() => handleDrawerClose()}
+          >
+           <ListItem
+             exact
+             component={NavLink}
              to="/team"
              className={classes.navlinks}
              activeClassName={classes.activeNavlinks}>
@@ -78,8 +101,8 @@ export default function SidenavData({ handleDrawerClose }) {
                </ListItemIcon>
              <ListItemText>Team</ListItemText>
            </ListItem>
-         </Button>
-         }
+           </Button>
+          }
          
         <Button
           size='small'
